@@ -1,3 +1,4 @@
+import 'package:film_uygulamasi/DetaySayfa.dart';
 import 'package:flutter/material.dart';
 import 'Filmler.dart';
 
@@ -79,17 +80,22 @@ class _MyHomePageState extends State<MyHomePage> {
               itemBuilder: (context, indeks) {
                 var film = filmlerListesi[indeks];
 
-                return Card(
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Image.asset("resimler/${film.film_resim_adi}"),
-                      ),
-                      Text(film.film_adi, style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
-                      Text("${film.film_fiyat} \u{20BA}", style: TextStyle(fontSize: 16)),
-                    ],
+                return GestureDetector(
+                  onTap: () {
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => DetaySayfa(film: film)));
+                  },
+                  child: Card(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Image.asset("resimler/${film.film_resim_adi}"),
+                        ),
+                        Text(film.film_adi, style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
+                        Text("${film.film_fiyat} \u{20BA}", style: TextStyle(fontSize: 16)),
+                      ],
+                    ),
                   ),
                 );
               },
