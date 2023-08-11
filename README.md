@@ -1,6 +1,6 @@
-# filmler_uygulamasi
+# Film Uygulaması
 
-A new Flutter project.
+SQLite veritabanı kullanılarak yapılan örnek uygulama
 
 ## Getting Started
 
